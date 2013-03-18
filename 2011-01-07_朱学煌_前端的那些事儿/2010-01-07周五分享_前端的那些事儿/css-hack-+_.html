@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>css权重</title>
+<style>
+.green { color:#0F0; }
+.green_ie6 { color:#0F0; _color:#F00; }
+.green_ie67 { color:#0F0; +color:#F0F; }
+.green_ie8 { color:#0F0; color:#00F\9; }
+.green_ie7lt { color:#0F0; *color:#00F; }
+</style>
+</head>
+
+<body>
+<div class="green">class="green"，绿色，正常</div>
+<div class="green_ie6">class="green_ie6"， IE6下红色</div>
+<div class="green_ie67">class="green_ie67"， IE67下紫红色</div>
+<div class="green_ie">class="green_ie"， IE下蓝色</div>
+<div class="green_ie67">class="green_ie67"， IE67下蓝色</div>
+</body>
+<script>
+alert(navigator.userAgent);
+</script>
+</html>

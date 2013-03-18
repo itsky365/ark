@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<title></title>
+<script src="jquery-min.js"></script>
+<script src="mailAutoComplete.js"></script>
+<style type="text/css">
+body { line-height:30px; }
+div, ul, li { margin:0; padding:0; }
+body { font-size:12px; }
+ul li { list-style:none; }
+.wrap { width:800px; margin:0 auto; }
+.relative { position:relative; }
+.mailList { position:absolute; left:0; top:30px; min-width:100px; line-height:22px; border:1px solid #CCC; overflow:hidden; }
+.mailList li { margin-top:-1px; padding:0 5px; border-top:1px dotted #CCC; }
+.red { color:#F00; }
+.gray { color:#CCC; }
+.hover { background-color:#C5DFE7; color:#FFF; cursor:pointer; }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+    <ul>
+        <li>默认值</li>
+        <li><input type="text" name="mail" id="mail" class="mail" /></li>
+    </ul>
+    <div style="height:80px"></div>
+    <hr />
+    <ul style="float:right">
+        <li>['@qq.com', '@163.com', '@126.com']</li>
+        <li><input type="text" name="mail" id="mail2" class="mail" /></li>
+    </ul>
+</div>
+
+<script>
+$(function() {
+	$('#mail').mailAutoComplete();
+	$('#mail2').mailAutoComplete({
+		'mailArray' : ['@qq.com', '@163.com', '@126.com']
+	});
+});
+</script>
+</body>
+</html>

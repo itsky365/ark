@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-min.js"></script>
+</head>
+
+<body>
+<pre>
+&lt;script&gt;
+(function($) {     
+	$.fn.extend({     
+		pluginName : function(opt, callback) {     
+			//Our plugin code write here;
+			alert('jquery plugin');      
+		}     
+	});   
+})(jQuery);
+$('body').pluginName();
+&lt;/script&gt;
+</pre>
+
+<script>
+(function($) {     
+	$.fn.extend({     
+		pluginName : function(opt, callback) {     
+			//Our plugin code write here;
+			alert('jquery plugin');      
+		}     
+	});   
+})(jQuery);
+$('body').pluginName();
+</script>
+</body>
+</html>

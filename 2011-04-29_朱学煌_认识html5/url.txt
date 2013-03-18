@@ -1,0 +1,17 @@
+Apple           http://www.apple.com/html5/
+
+google          http://www.html5rocks.com
+
+Mozilla         https://developer.mozilla.org/en/HTML/HTML5
+
+opera           http://www.opera.com/docs/specs/presto25/html5
+
+Microsoft       http://ie.microsoft.com/testdrive
+
+Canvas Demo     http://muro.deviantart.com/
+
+Table Demo       http://joshduck.com/periodic-table.html
+
+browser         http://button.tugai.net/RGraph/examples/browser.html
+
+https://developer.mozilla.org/cn/HTML/HTML5

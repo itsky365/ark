@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<title>css权重</title>
+<style>
+div { color:#CCC; }
+.green { color:#0F0; }
+.other { color:#000; }
+#blue { color:#00F; }
+.important { color:#0FF!important; }
+</style>
+</head>
+
+<body>
+    <div>我是默认色，灰色</div>
+    <div style="color:#F00">我是红色</div>
+    <div class="green">class="gree"，绿色</div>
+    <div id="blue">id="blue"，蓝色</div>
+    <div id="blue" class="green">id="blue" class="blue"，还是蓝色</div>
+    <div class="important blue">class="important blue"，是important的作用</div>
+    <div class="important" id="blue" style="color:#000">id="blue" class="important"，还是蓝色</div>
+    <div class="blue other">class="blue other"，黑色了</div>
+</body>
+</html>

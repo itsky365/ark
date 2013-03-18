@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择器</title>
+<style>
+#demo { width:600px; margin:20px auto; padding:10px; border:5px solid #F00; -moz-border-radius:10px; -moz-box-shadow:0 0 20px rgba(0,0,0,0.8); }
+.green { background-color:#0FF; }
+.red { background-color:#F00; }
+.blue { background-color:#00F; }
+#button { width:600px; margin:0 auto; }
+</style>
+</head>
+<body>
+<div id="demo">
+	<div>我是div对象</div>
+	<p>我是p对象</p>
+	<ul>
+		<li>我是ul li对象</li>
+	</ul>
+</div>
+<div id="button">
+	<input type="button" id="demo-div" value="div背景颜色更换" />
+	<input type="button" id="demo-p" value="p背景颜色更换" />
+	<input type="button" id="demo-li" value="ul li背景颜色更换" />
+</div>
+<script src="./jquery-min.js"></script>
+<script>
+$(function(){
+	$('#demo-div').click(function() {
+		$('#demo div').toggleClass('green');
+	});
+	$('#demo-p').click(function() {
+		$('#demo p').toggleClass('red');
+	});
+	$('#demo-li').click(function() {
+		$('#demo ul li').toggleClass('blue');
+	});
+});
+</script>
+</body>
+</html>

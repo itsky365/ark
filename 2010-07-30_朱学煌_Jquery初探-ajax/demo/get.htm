@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>get.htm</title>
+</head>
+<body>
+Get <input type="text" id="id" name="id" />
+<input type="button" id="search" name="search" value="get 搜索" />
+<div id="demo"></div>
+
+<script src="./jquery-min.js"></script>
+<script>
+//get()
+$(function() {
+	$('#search').click(function() {
+		var idVal = $('#id').val();
+		//alert(idVal);
+		if (idVal.length < 1) {
+			alert('请输入要查找的id');
+			$('#id').focus();
+		} else {		
+			$.get('app.php', {id:idVal, ac:'get'}, function(data) {
+				//alert(data);
+				if (data.error) {
+					alert(data.error);
+				} else {
+					var ul = '<ul>';
+					ul += '<li>' + data.id + '</li>';
+					ul += '<li>' + data.title + '</li>';
+					ul += '<li>' + data.content + '</li>';
+					ul += '<li>' + data.addtime + '</li>';
+					ul += '</ul>';
+					$('#demo').append(ul);
+				}
+			}, 'json');
+		}
+	});
+});
+</script>
+</body>
+</html>

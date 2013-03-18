@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-min.js"></script>
+</head>
+
+<body>
+<pre>
+&lt;script&gt;
+$.fn.extend({ 
+	check : function() { 
+		return  this.each(function() { this.checked = true; }); 
+	}, 
+	uncheck : function() { 
+		return this.each(function() { this.checked = false; }); 
+	} 
+}); 
+//$("input[type=checkbox]").check();
+//$("input[type=radio]").uncheck();
+
+$('#checkAll').click(function() {
+	$("input[type=checkbox]").check();
+});
+$('#checkNoAll').click(function() {
+	$("input[type=checkbox]").uncheck();
+});
+
+$('#checkAll-radio').click(function() {
+	$("input[type=radio]").check();
+});
+$('#checkNoAll-radio').click(function() {
+	$("input[type=radio]").uncheck();
+});
+&lt;/script&gt;
+</pre>
+
+<label><input type="checkbox" name="name1" value="name1" />name1</label>
+<label><input type="checkbox" name="name2" value="name2" />name2</label>
+<label><input type="checkbox" name="name3" value="name3" />name3</label>
+<label><input type="checkbox" name="name4" value="name4" />name4</label><br />
+<input type="button" value="全选" name="checkAll" id="checkAll" />
+<input type="button" value="全不选" name="checkNoAll" id="checkNoAll"  />
+<hr />
+<label><input type="radio" name="name1" value="name1" />name1</label>
+<label><input type="radio" name="name2" value="name2" />name2</label>
+<label><input type="radio" name="name3" value="name3" />name3</label>
+<label><input type="radio" name="name4" value="name4" />name4</label><br />
+<input type="button" value="全选" name="checkAll-radio" id="checkAll-radio" />
+<input type="button" value="全不选" name="checkNoAll-radio" id="checkNoAll-radio"  />
+<script>
+$.fn.extend({ 
+	check : function() { 
+		return  this.each(function() { this.checked = true; }); 
+	}, 
+	uncheck : function() { 
+		return this.each(function() { this.checked = false; }); 
+	} 
+}); 
+//$("input[type=checkbox]").check();
+//$("input[type=radio]").uncheck();
+
+$('#checkAll').click(function() {
+	$("input[type=checkbox]").check();
+});
+$('#checkNoAll').click(function() {
+	$("input[type=checkbox]").uncheck();
+});
+
+$('#checkAll-radio').click(function() {
+	$("input[type=radio]").check();
+});
+$('#checkNoAll-radio').click(function() {
+	$("input[type=radio]").uncheck();
+});
+</script>
+</body>
+</html>

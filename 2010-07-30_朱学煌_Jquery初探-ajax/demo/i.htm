@@ -1,0 +1,10 @@
+<script src="./jquery-min.js"></script>
+<script>
+var json ={ RecordCount:8,PageCount:2,datalist:[ { AlbumID: '10003',UserID: '1',AlbumName: '789',CoverPhoto: 'http://localhost:3903/Web/UploadFiles/Photo/1/10003/50da4889e6824e13b460e3ad84c27dc9&100.jpg',CheckID: '0',PhotoNum: '3',CreateDate: '2009-9-16 15:00:57',UpdateDate: '2009-10-29 9:47:04',UpdateDateStr:'10月29日'}, { AlbumID: '10000',UserID: '1',AlbumName: '坝上1',CoverPhoto: 'http://localhost:3903/Web/UploadFiles/Photo/1/10000/31094fed15a74f5a9f357bcef1c34a74&100.jpg',CheckID: '0',PhotoNum: '2',CreateDate: '2009-9-14 13:17:32',UpdateDate: '2009-11-9 10:18:21',UpdateDateStr:'11月9日'} ]};
+
+var albumData = json.datalist;
+
+$.each(albumData, function(i, n) {
+	alert(n.AlbumName);
+});
+</script>

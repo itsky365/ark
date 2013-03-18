@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-min.js"></script>
+</head>
+
+<body>
+<pre>
+&lt;script&gt;
+var settings = { validate:false, limit:5, name:"foo" }; 
+$.each(settings, function(k, v) {
+	alert('原来值：' + k + ' => ' + v);	
+});
+var options = { validate:true, name:"bar" };
+jQuery.extend(settings, options); 
+//settings == { validate: true, limit: 5, name: "bar" }
+$.each(settings, function(k, v) {
+	alert('更新值：' + k + ' => ' + v);	
+});
+&lt;/script&gt;
+</pre>
+
+<script>
+var settings = { validate:false, limit:5, name:"foo" }; 
+$.each(settings, function(k, v) {
+	alert('settings 原来值：' + k + ' => ' + v);	
+});
+var options = { validate:true, name:"bar" };
+jQuery.extend(settings, options); 
+//settings == { validate: true, limit: 5, name: "bar" }
+$.each(settings, function(k, v) {
+	alert('settings 更新值：' + k + ' => ' + v);	
+});
+</script>
+</body>
+</html>

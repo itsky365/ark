@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>element.htm</title>
+<style>
+body { width:800px; margin:0 auto; }
+.demo { width:600px; height:300px; margin:0 auto; padding:10px; border:5px solid #F00; background-color:#009C1F; font-size:30px; color:#FFF; -moz-border-radius:20px; -webkit-border-radius:20px; }
+.click { line-height:30px; margin-bottom:10px; background-color:#D82B00; }
+</style>
+</head>
+<body>
+<div class="demo">
+    这里是一个demo    
+</div>
+
+<ul class="demoUl">
+    <li>这里是一个demo</li>
+    <li>这里是一个demo</li>
+    <li>这里是一个demo</li>    
+</ul>
+<input type="button" id="btn" value="点我试试看" />
+
+<script src="./jquery-min.js"></script>
+<script>
+$(function() {
+    //alert('window.onload');
+    $('.demo').click(function() {
+        //alert('click');
+        $(this).text('你点击了我呀！');
+        var bodySize = $('body').size();
+        alert(bodySize);
+    });
+    
+    $('#btn').click(function() {
+        $('.demoUl li').addClass('click');
+        var liLength = $('ul li').length;
+        alert(liLength);
+    });
+});
+</script>
+</body>
+</html>

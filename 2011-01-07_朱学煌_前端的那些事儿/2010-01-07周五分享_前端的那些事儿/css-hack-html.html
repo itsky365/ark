@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+.color { color:#F00; }
+*html .color_ie6 { color:#0F0; }
+*+html .color_ie7 { color:#00F; }
+</style>
+</head>
+
+<body>
+<div class="color">class="color"，红色</div>
+<div class="color_ie6">class="color_ie6"，在ie6下是绿色</div>
+<div class="color_ie7">class="color_ie7"，在ie7下是蓝色</div>
+
+<script>
+alert(navigator.userAgent);
+</script>
+</body>
+</html>

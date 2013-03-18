@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-min.js"></script>
+</head>
+
+<body>
+<pre>
+var empty = {}; 
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" }; 
+var settings = jQuery.extend(empty, defaults, options); 
+//settings == { validate: true, limit: 5, name: "bar" }
+//empty == { validate: true, limit: 5, name: "bar" }
+$.each(settings, function(k, v) {
+	alert('更新值：' + k + ' => ' + v);	
+});
+$.each(empty, function(k, v) {
+	alert('更新值：' + k + ' => ' + v);	
+});
+&lt;/script&gt;
+</pre>
+
+<script>
+var empty = {}; 
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" }; 
+var settings = jQuery.extend(empty, defaults, options); 
+//settings == { validate: true, limit: 5, name: "bar" }
+//empty == { validate: true, limit: 5, name: "bar" }
+$.each(settings, function(k, v) {
+	alert('settings 更新值：' + k + ' => ' + v);	
+});
+$.each(empty, function(k, v) {
+	alert('empty 更新值：' + k + ' => ' + v);	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-min.js"></script>
+</head>
+
+<body>
+<input id="input1" type="text" value="" />
+<input id="input2" type="text" value="" />
+<input id="btn" type="button" value="拼接" />
+<input id="input3" type="text" value="" />
+<pre>
+&lt;script&gt;
+$.extend({
+	add : function(a, b) {
+		return a + b;
+	}  
+});
+
+$('#btn').click(function() {
+	var ipt1 = $('#input1').val();
+	var ipt2 = $('#input2').val();
+	var result = $.add(ipt1, ipt2);
+	$('#input3').val(result);
+});
+&lt;/script&gt;
+</pre>
+
+<script>
+$.extend({
+	add : function(a, b) {
+		return a + b;
+	}  
+});
+
+$('#btn').click(function() {
+	var ipt1 = $('#input1').val();
+	var ipt2 = $('#input2').val();
+	var result = $.add(ipt1, ipt2);
+	$('#input3').val(result);
+});
+</script>
+</body>
+</html>

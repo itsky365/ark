@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>post.htm</title>
+</head>
+<body>
+Post <input type="text" id="id" name="id" />
+<input type="button" id="search" name="search" value="post 搜索" />
+<div id="demo"></div>
+
+<script src="./jquery-min.js"></script>
+<script>
+$(function() {
+	$('#search').click(function() {
+		var idVal = $('#id').val();
+		if (idVal.length < 1) {
+			alert('请输入要查找的id');
+			$('#id').focus();
+		} else {
+			$.post('app.php', {id:idVal, ac:'post'}, function(data) {
+				//alert(data);
+				if (data.error) {
+					alert(data.error);
+				} else {
+					var ul = '<ul>';
+					ul += '<li>' + data.id + '</li>';
+					ul += '<li>' + data.title + '</li>';
+					ul += '<li>' + data.content + '</li>';
+					ul += '<li>' + data.addtime + '</li>';
+					ul += '</ul>';
+					$('#demo').append(ul);
+				}
+			}, 'json');
+		}	
+	});
+});
+</script>
+</body>
+</html>

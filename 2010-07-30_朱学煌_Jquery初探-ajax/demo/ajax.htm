@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax</title>
+<style>
+ul li { list-style:none; }
+input, textarea { margin:0; padding:0; vertical-align:top; }
+#demo { position:relative; width:600px; margin:0 auto; border:5px solid #F00; }
+#demo ul li { margin-bottom:10px; }
+.liBtn { padding-left:50px; }
+.focus { margin:-2px; border:2px solid #F00; }
+#tip { display:none; position:absolute; top:5px; left:270px; line-height:30px; padding:0 20px; border:2px solid #CCC; -moz-border-radius:10px; }
+</style>
+</head>
+<body>
+<div id="demo">
+	<div id="tip"></div>
+	<ul>
+		<li><strong>标题</strong>
+			<input type="text" name="title" id="title" value="标题 " />
+		</li>
+		<li><strong>内容</strong>
+			<textarea id="content">内容</textarea>
+		</li>
+		<li class="liBtn">
+			<input type="button" name="btn" id="btn" value="确定" />
+		</li>
+	</ul>
+	<div id="show"></div>	
+</div>
+
+<script src="./jquery-min.js"></script>
+<script>
+var keypress = function(id) {
+	$(id).keypress(function() {
+		var val = $(this).val();
+		if ((val.length + 1) > 0) {
+			$(this).removeClass('focus');
+		}
+	});
+};
+
+var list = function(json) {
+	listStr = "<table id=" + json.id + "><tr>";
+	listStr += '<td>' + json.id + '</td>';
+	listStr += '<td>' + json.title + '</td>';
+	listStr += '<td>' + json.content + '</td>';
+	listStr += '<td>' + json.addtime + '</td>';
+	listStr += "<td><a href='javascript:del(" + json.id + ")>删除</a></td>";
+	listStr += '</tr></table>';
+	$('#show').append(listStr);
+}
+
+//del()
+var del = function(idVal) {
+	$.ajax({
+		type : 'get',
+		url : 'app.php',
+		data : { id:idVal, ac:'del' },
+		beforeSend : function(xhr) {
+			$('#tip').show();
+			$('#tip').text('正在操作中……');
+		},
+		success : function(data) {
+			alert('删除' + data);
+		},
+		complete : function(xhr) {
+			$('#tip').hide();
+		}
+	});
+	$('#' + idVal).remove();
+};
+
+$(function() {
+	//add()
+	$('#btn').click(function() {
+		var titleVal = $('#title').val();
+		var contentVal = $('#content').val();
+		if (titleVal.length < 1) {
+			alert('请输入标题');
+			$('#title').focus();
+			$('#title').addClass('focus');
+		} else if (contentVal.length < 1) {
+			alert('请输入内容');
+			$('#content').focus();
+			$('#content').addClass('focus');
+		} else {
+			$.ajax({
+				type : 'post',
+				url : 'app.php',
+				data : {title : titleVal, content : contentVal, ac : 'add'},
+				dataType : 'json',
+				beforeSend : function(xhr) {
+					$('#tip').show();
+					$('#tip').text('正在操作中……');
+				},
+				success : function(data) {
+					//alert(typeof data);
+					list(data);
+					alert('添加成功啦');
+				},
+				complete : function(xhr) {
+					$('#tip').hide();
+				}
+			});
+		}
+	});
+
+	keypress('#title');
+	keypress('#content');
+});
+</script>
+</body>
+</html>

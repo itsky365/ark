@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>clearfix</title>
+<style>
+ul { list-style:none; }
+#demo li, #demo1 li { float:left; margin:0 10px; background-color:#CCC; }
+.border { border:1px solid #F00; }
+.clearfix:after { content:''; clear:both; display:block; height:0; visibility:hidden; }
+.clearfix { zoom:1; }
+</style>
+</head>
+
+<body>
+<ul id="demo" class="border">
+	<li>11</li>
+    <li>22</li>
+    <li>11</li>
+    <li>22</li>
+    <li>11</li>
+    <li>22</li>
+</ul>
+
+<ul id="demo1" class="border clearfix">
+	<li>11</li>
+    <li>22</li>
+    <li>11</li>
+    <li>22</li>
+    <li>11</li>
+    <li>22</li>
+</ul>
+</body>
+</html>

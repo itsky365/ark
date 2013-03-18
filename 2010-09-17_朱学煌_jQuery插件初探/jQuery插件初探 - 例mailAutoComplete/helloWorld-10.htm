@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-min.js"></script>
+<style>
+.red { color:#F00; }
+.blue { color:#00F; }
+</style>
+</head>
+
+<body>
+<div id="demo"></div>
+<pre>
+&lt;script&gt;
+$.fn.demo = function(options) {    
+	var defaults = {    
+		'name' : '浙江中塑在线',    
+		'class' : 'red'   
+	};    
+	// Extend our default options with those provided.    
+	var opts = $.extend(defaults, options);    
+	
+	// Our plugin code write here.
+	this.each(function() {
+		$(this).addClass(opts.class);
+		$(this).html(opts.name);
+	});	
+} 
+$('#demo').demo({    
+	'class' : 'blue'    
+});
+&lt;/script&gt;
+</pre>
+
+<script>
+$.fn.demo = function(options) {    
+	var defaults = {    
+		'name' : '浙江中塑在线',    
+		'class' : 'red'   
+	};    
+	// Extend our default options with those provided.    
+	var opts = $.extend(defaults, options);    
+	
+	// Our plugin code write here.
+	this.each(function() {
+		$(this).addClass(opts.class);
+		$(this).html(opts.name);
+	});	
+};
+$('#demo').demo({    
+	'class' : 'blue'    
+});
+</script>
+</body>
+</html>

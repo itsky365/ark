@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tab</title>
+<style>
+div { margin:0; padding:0; }
+#tab, #tab2 { width:600px; height:200px; margin:20px auto; border:5px solid #999; }
+#tabHead a, #tabHead2 a { display:inline-block; float:left; width:200px; height:30px; line-height:30px; background-color:#EEE; text-align:center; }
+#tabHead a.on, #tabHead2 a.on { background-color:#BCBCBC; }
+#tab div, #tab2 div { clear:both; }
+.tabBody { height:130px; padding:20px; background-color:#BCBCBC; }
+.block { display:block; }
+.none { display:none; }
+</style>
+</head>
+<body>
+
+<div id="tab">
+	<div id="tabHead">
+		<a href="#" class="on">标题一</a>
+		<a href="#">标题二</a>
+		<a href="#">标题三</a>
+	</div>
+	<div class="tabBody block">内容一</div>
+	<div class="tabBody none">内容二</div>
+	<div class="tabBody none">内容三</div>
+</div>
+
+<div id="tab2">
+	<div id="tabHead2">
+		<a href="#" rev="1" class="on">标题一</a>
+		<a href="#" rev="2">标题二</a>
+		<a href="#" rev="3">标题三</a>
+	</div>
+	<div class="tabBody block">内容一</div>
+	<div class="tabBody none">内容二</div>
+	<div class="tabBody none">内容三</div>
+</div>
+<script src="./jquery-min.js"></script>
+<script>
+$(function() {
+	$('#tabHead a').click(function() {
+		$('#tabHead a').removeClass('on');
+		$(this).addClass('on');
+		var index = $('#tabHead a').index(this);
+		$('#tab div:gt(0)').hide();
+		$('#tab div:gt(0)').eq(index).show();
+	});
+});
+
+
+//js原生态
+var getid = function(id) { return document.getElementById(id); };
+
+var tabHead2 = getid('tabHead2');
+var tabHead2A = tabHead2.getElementsByTagName('a');
+var tab2 = getid('tab2');
+var tab2Div = tab2.getElementsByTagName('div');
+
+var aClick = function() {
+	for (var i=0; i<tabHead2A.length; i++) {
+		tabHead2A[i].className = '';
+		tab2Div[i + 1].style.display = 'none';
+	}
+	this.className = 'on';
+	var index = this.rev;
+	tab2Div[index].style.display = 'block';
+};
+
+var init = function() {	
+	for (var i=0; i<tabHead2A.length; i++) {
+		tabHead2A[i].onclick = aClick;
+	}
+};
+
+window.onload = init;
+</script>
+</body>
+</html>
